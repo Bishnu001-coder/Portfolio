@@ -1,0 +1,149 @@
+@import "tailwindcss";
+@reference "tailwindcss/theme";
+
+/* ✅ Theme Tokens */
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-border: hsl(var(--border));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+}
+
+/* ✅ Base Layer */
+@layer base {
+  :root {
+    --background: 33 100% 97%;      /* warm ivory background */
+    --foreground: 20 50% 10%;       /* dark brown text */
+    --card: 0 0% 100%;
+    --primary: 25 95% 50%;          /* 🔥 fire orange (#FF6A00) */
+    --primary-foreground: 0 0% 100%;
+    --border: 20 80% 85%;           /* light warm border */
+  }
+
+  .dark {
+    --background: 15 80% 6%;        /* deep reddish brown */
+    --foreground: 33 100% 95%;      /* soft cream text */
+    --card: 15 70% 10%;             /* dark warm tone */
+    --primary: 20 90% 55%;          /* 🔥 glowing orange-red */
+    --primary-foreground: 33 100% 97%;
+    --border: 15 50% 25%;           /* dark border */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "liga" 1, "calt" 1;
+  }
+}
+
+/* ✅ Animations (same as before) */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.8); }
+}
+
+@keyframes meteor {
+  0% { transform: rotate(215deg) translateX(0); opacity: 1; }
+  70% { opacity: 1; }
+  100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-5%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes fade-fast {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes grow {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target-width, 100%);
+  }
+}
+
+
+/* ✅ Utility Classes */
+@layer utilities {
+  .animate-fade-in { animation: fade-in 1s ease forwards; }
+  .animate-fade-in-delay-1 { animation: fade-in 1s ease 0.2s forwards; }
+  .animate-fade-in-delay-2 { animation: fade-in 1s ease 0.4s forwards; }
+  .animate-fade-in-delay-3 { animation: fade-in 1s ease 0.6s forwards; }
+  .animate-fade-in-delay-4 { animation: fade-in 1s ease 0.8s forwards; }
+  .animate-bounce { animation: bounce 1s infinite; }
+
+  .text-glow {
+    text-shadow: 0 0 12px rgba(255, 100, 0, 0.6); /* 🔥 orange glow */
+  }
+
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+
+  .gradient-border {
+    @apply relative rounded-md;
+    background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+    background-clip: padding-box;
+    border: 1px solid transparent;
+  }
+
+  .cosmic-button {
+    @apply px-6 py-2 rounded-full text-primary-foreground font-medium 
+    transition-all duration-300 hover:scale-105 active:scale-95;
+    background: linear-gradient(90deg, #FF6A00, #FFB200, #FF4500); /* 🔥 gradient */
+    box-shadow: 0 0 12px rgba(255, 100, 0, 0.5);
+  }
+
+  .star {
+    position: absolute;
+    border-radius: 50%;
+    background: #FFD580; /* soft golden glow */
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
+    animation: blink 2s infinite ease-in-out;
+  }
+
+  .meteor {
+    @apply absolute rounded-full;
+    background-image: linear-gradient(to right, #FFB200, #FF6A00, transparent);
+    box-shadow: 0 0 5px rgba(255, 120, 0, 0.4);
+    animation: meteor 5s linear infinite;
+  }
+
+  .animate-fade-fast {
+    animation: fade-fast 0.6s ease forwards;
+  }
+
+  html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 100px; /* optional offset for fixed navbar */
+}
+
+}
+
