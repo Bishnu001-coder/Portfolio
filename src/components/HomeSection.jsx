@@ -21,7 +21,16 @@ export const HomeSection = () => {
             A passionate developer crafting clean, creative, and interactive web experiences.
           </p>
           <div className="pt-2 opacity-0 max-w-2xl mx-auto animate-fade-in-delay-4" >
-            <a href="#project" className="cosmic-button">View My Work</a>
+            <button
+  onClick={() => {
+    const section = document.querySelector("#projects");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="cosmic-button"
+>
+  View My Work
+</button>
+
           </div>
         </div>
       </div>

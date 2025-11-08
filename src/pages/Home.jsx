@@ -7,6 +7,7 @@ import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
 import { ProjectSection } from "../components/ProjectSection";
 import { ContactSection } from "../components/ContactSection";
+import {  CertificateSection } from "../components/CertificateSection";
 import { Footer } from "../components/Footer";
 export const Home = () => {
   const [showStars, setShowStars] = useState(false);
@@ -36,7 +37,7 @@ export const Home = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 🎬 When the video ends
+  //  When the video ends
   const handleVideoEnd = () => {
     setVideoEnded(true);
 
@@ -50,37 +51,38 @@ export const Home = () => {
     setTimeout(() => setShowContent(true), 1000);
   };
 
-  // ✅ Background — black for dark mode, white for light
+  //  Background — black for dark mode, white for light
   const backgroundClass = isDarkMode ? "bg-black" : "bg-white";
 
   return (
     <div
       className={`relative min-h-screen ${backgroundClass} text-foreground overflow-hidden transition-colors duration-500`}
     >
-      {/* 🎬 Intro video plays first */}
+      {/*  Intro video plays first */}
       <IntroVideo onVideoEnd={handleVideoEnd} />
 
-      {/* 🌌 Stars only after video ends in dark mode */}
+      {/*  Stars only after video ends in dark mode */}
       {videoEnded && isDarkMode && showStars && (
         <div className="absolute inset-0 z-0">
           <StarBackground />
         </div>
       )}
 
-      {/* 🧭 Navbar — only visible after video ends */}
+      {/*  Navbar — only visible after video ends */}
       {showNavbar && (
         <div className="fixed top-0 left-0 w-full z-[1000] animate-fade-in">
           <NavBar />
         </div>
       )}
 
-      {/* 🏠 Main Content */}
+      {/*  Main Content */}
       {showContent && (
         <main className="relative z-20 animate-fade-in">
           <HomeSection />
           <AboutSection />
           <SkillsSection />
           <ProjectSection/>
+          <CertificateSection/>
           <ContactSection/>
          <Footer />
         </main>

@@ -8,14 +8,14 @@ export const AboutSection = () => {
       className="relative py-24 px-6 text-foreground bg-transparent"
     >
       <div className="container mx-auto max-w-6xl">
-        {/* 🌟 Heading */}
+        {/*  Heading */}
         <h2 className="text-4xl md:text-5xl font-bold mb-16 text-center animate-fade-in">
           About <span className="text-primary text-glow">Me</span>
         </h2>
 
-        {/* 🧱 Content Grid */}
+        {/*  Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          {/* 👨‍💻 Left: Description */}
+          {/*  Left: Description */}
           <div className="space-y-6 animate-fade-in-delay-1">
             <h3 className="text-2xl font-semibold text-primary">
               Passionate Web Developer & Tech Explorer
@@ -52,9 +52,17 @@ export const AboutSection = () => {
 
             {/* 🔘 Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center sm:justify-start">
-              <a href="#contact" className="cosmic-button text-center">
-                Get in Touch
-              </a>
+              <button
+  onClick={() => {
+    const section = document.querySelector("#contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }}
+  className="cosmic-button text-center"
+>
+  Get in Touch
+</button>
 
               {/* ✅ Resume View */}
               <a

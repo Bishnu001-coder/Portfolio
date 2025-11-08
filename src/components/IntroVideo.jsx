@@ -10,7 +10,7 @@ export const IntroVideo = ({ onVideoEnd }) => {
     setTimeout(() => {
       setDone(true);
       onVideoEnd();
-    }, 600); // smooth + quick fade
+    }, 1000); // smooth + quick fade
   };
 
   if (done) return null;

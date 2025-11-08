@@ -7,7 +7,7 @@ const projects = [
     description:
       "Developed a deep learning model to classify brain tumors from MRI images with high accuracy.",
     tags: ["Python", "TensorFlow", "Keras", "CNN"],
-    image: "/Projects/project-1.webp",
+    image: "Projects/project-1.webp",
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -17,7 +17,7 @@ const projects = [
     description:
       "Implemented a secure Triple DES-based encryption and decryption system for images using Python.",
     tags: ["Python", "Cryptography", "Triple DES"],
-    image: "/Projects/download.jpeg",
+    image: "Projects/download.jpeg",
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -27,7 +27,7 @@ const projects = [
     description:
       "Created an image caption generator using CNN and LSTM models for automated image description generation.",
     tags: ["Python", "TensorFlow", "Keras", "RNN", "CNN"],
-    image: "/Projects/project-3.webp",
+    image: "Projects/project-3.webp",
     demoUrl: "#",
     githubUrl: "#",
   },
@@ -113,20 +113,7 @@ export const ProjectSection = () => {
           ))}
         </div>
 
-        {/* GitHub CTA */}
-        <div className="text-center mt-12">
-          <a
-            href="https://github.com/Bishnu001-coder"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cosmic-button w-fit inline-flex items-center mx-auto gap-2"
-            aria-label="View all projects on GitHub"
-          >
-            <Github size={16} />
-            Check My GitHub
-            <ArrowRight size={16} />
-          </a>
-        </div>
+        
       </div>
     </section>
   );
